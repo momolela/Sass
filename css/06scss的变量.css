@@ -1,0 +1,41 @@
+@charset "UTF-8";
+.container {
+  font-size: 16px;
+}
+
+.footer {
+  font-size: 16px;
+}
+
+.container {
+  font-size: 14px;
+}
+
+/* !global 可以把局部变量强行转成全局变量 */
+.container {
+  font-size: 16px;
+}
+
+.footer {
+  font-size: 16px;
+}
+
+.container {
+  font-size: 16px;
+  background-color: #Fff;
+  content: null;
+  content: 1;
+  color: #95d7eb;
+}
+
+.footer {
+  font-size: 16px;
+}
+
+.wrap {
+  font: 18px bold;
+}
+
+.container {
+  border-color: #333;
+}

@@ -1,0 +1,113 @@
+// -------------------------------- css 原有的变量 --------------------------------
+// :root {
+//     --color: #F00;
+// }
+
+// body {
+//     --border-color: #f2f2f2;
+// }
+
+// .header {
+//     --background-color: #f8f8f8;
+// }
+
+// 使用：p 会在 body 下
+// p {
+//     color: var(--color);
+//     border-color: var(--border-color);
+// }
+
+// 使用：只有在该选择器下，才能使用它的变量
+// .header {
+//     background-color: var(--background-color)
+// }
+
+
+// --------------------------------  scss 变量定义规则 --------------------------------
+// $ 定义变量，$开头，后面接变量名
+// 定义变量必须定义在使用的上面
+// -和_无法区分
+// 1，*，^ 这些特殊符号不能作为变量名的第一个
+
+
+// --------------------------------  scss 变量作用域 --------------------------------
+// 全局变量
+$font-size: 16px;
+.container {
+    font-size: $font-size;
+}
+.footer {
+    font-size: $font-size;
+}
+
+// 局部变量
+.container {
+    $font-size: 14px;
+    font-size: $font-size;
+}
+// p {
+//     font-size: $font-size; /* 这里会报错，因为上面的变量是局部变量 */
+// }
+
+// 强行局部变量转全局变量
+/* !global 可以把局部变量强行转成全局变量 */
+.container {
+    $font-size: 16px !global;
+    font-size: $font-size;
+}
+.footer {
+    font-size: $font-size;
+}
+
+
+// --------------------------------  scss 变量值类型 --------------------------------
+// 变量值类型有很多，主要支持 6 种
+// 数字，1，2，13，10pX
+// 字符串，有引号字符串与无引号字符串，"foo"， 'bar"，baz
+// 颜色，blue，#04a3f9，rgba(255,0,0,0.5)
+// 布尔型，true, false
+// 空值，null
+// 数组(list)，用空格或逗号作分隔符，1.5em 1em 0 2em，Helvetica,Arial,sans-serif
+// maps，相当于JavaScript 的object，(key1: value1, key2: value2)
+$layer-index: 10;
+$border-width: 3px;
+$font-base-family: 'open sans', Helvetica, Sans-serif;
+$top-bg-color: rgba(255, 147, 29, 8.6);
+$block-base-padding: 6px 10px 0px 10px;
+$blank-mode: false;
+$var: null; // 值 null 是其类型的唯一值。它表示缺少值，通常由函数返回以指示缺少结果
+$color-map: (color1:fa880e, color2:#fbe208, color3:#95d7eb);
+$fonts: (serif: "Helvetica Neue", monospace: "consolas");
+.container {
+    $font-size: 16px !global;
+    font-size: $font-size;
+    // 通过值的判断进行 css 选择渲染
+    @if $blank-mode {
+        background-color: #830;
+    }
+    @else {
+        background-color: #Fff;
+    }
+    // 判断类型
+    content: type-of($var);
+    // 读取长度：这里是 1
+    content: length($var);
+    // 通过 map-get 获取 mpas 变量的具体 key 对应的值
+    color: map-get($color-map, color3);
+}
+.footer {
+    font-size: $font-size;
+}
+// 如果列表中包含空值，则生成的 css 中将忽略该空值
+.wrap {
+    font: 18px bold map-get($fonts, "sans");
+}
+
+
+// --------------------------------  scss 变量默认值 --------------------------------
+$color :#333;
+// 如果 $color 之前未定义就使用如下的默认值
+$color: #666 !default;
+.container {
+    border-color: $color;
+}

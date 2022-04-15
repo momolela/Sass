@@ -1,0 +1,12 @@
+.container {
+    a {
+        color: #333;
+
+        font: {
+            /* 属性的嵌套 */
+            size: 14px;
+            family: sans-serif;
+            weight: bold;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.container {
+    a {
+        // 单行注释：编译后的 css 文件会自动去除
+        color: #333;
+
+        font: {
+            /* 
+                多行注释：会保留到编译后的 css 文件 
+            */
+            size: 14px;
+            family: sans-serif;
+            weight: bold;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+html {
+  font-size: 12px;
+  color: #333;
+}
+
+.container {
+  font-size: 14px;
+}
+
+.container .header {
+  width: 50%;
+  height: 30px;
+}
+
+.container .header .top {
+  border: 1px solid red;
+}
+
+.container .header .top-left {
+  /* & 就是代表上层的所有父选择器 */
+  float: left;
+}
+
+.container .footer {
+  background-color: green;
+}
+
+.container::after {
+  /* & 就是代表上层的所有父选择器 */
+  display: inline-block;
+}

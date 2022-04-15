@@ -1,0 +1,18 @@
+html {
+    font-size: 12px;
+    color: #333;
+}
+
+.container {
+    font-size: 14px;
+    .header {
+        width: 50%;
+        height: 30px;
+        .left{
+            float: left;
+        }
+    }
+    .footer {
+        background-color: green;
+    }
+}
